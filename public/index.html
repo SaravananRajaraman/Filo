@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Organiser — Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">▣</span>
+      <h1>File Organiser</h1>
+    </div>
+    <div class="mode">
+      <span id="mode-pill" class="pill">…</span>
+      <button id="toggle-dry" class="btn btn-ghost">Toggle mode</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="activity">Activity</button>
+    <button class="tab" data-tab="stats">Stats</button>
+    <button class="tab" data-tab="rules">Rules</button>
+    <button class="tab" data-tab="dupes">Duplicates</button>
+  </nav>
+
+  <main>
+    <!-- ACTIVITY -->
+    <section id="activity" class="panel active">
+      <div class="panel-head">
+        <h2>Live activity</h2>
+        <span id="live-dot" class="live-dot" title="connecting…"></span>
+      </div>
+      <table class="grid">
+        <thead>
+          <tr><th>Time</th><th>File</th><th>→ Destination</th><th>Category</th><th></th></tr>
+        </thead>
+        <tbody id="feed-body"></tbody>
+      </table>
+      <p id="feed-empty" class="empty">No activity yet. Drop a file into a watched folder.</p>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats" class="panel">
+      <div class="cards">
+        <div class="card"><div class="card-n" id="stat-today">0</div><div class="card-l">Moved today</div></div>
+        <div class="card"><div class="card-n" id="stat-total">0</div><div class="card-l">Total moves</div></div>
+        <div class="card"><div class="card-n" id="stat-dupes">0</div><div class="card-l">Duplicates</div></div>
+        <div class="card"><div class="card-n" id="stat-undone">0</div><div class="card-l">Undone</div></div>
+      </div>
+      <h3>By category</h3>
+      <div id="cat-bars" class="bars"></div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules" class="panel">
+      <div class="panel-head"><h2>Rules editor</h2><span class="hint">Saved straight to rules.yaml · hot-reloads</span></div>
+
+      <h3>Watched folders</h3>
+      <div id="watched-list" class="list"></div>
+      <div class="row-add">
+        <input id="watched-new" type="text" placeholder="~/Downloads" />
+        <button id="watched-add" class="btn">Add folder</button>
+      </div>
+
+      <h3>Category → destination</h3>
+      <div id="rules-list" class="list"></div>
+      <div class="row-add">
+        <input id="rule-cat" type="text" placeholder="Category (e.g. Images)" />
+        <input id="rule-dest" type="text" placeholder="~/Pictures/Sorted/{year}/{month}" />
+        <button id="rule-add" class="btn">Add rule</button>
+      </div>
+
+      <div class="actions-bar">
+        <button id="rules-save" class="btn btn-primary">Save &amp; reload</button>
+        <span id="rules-status" class="status"></span>
+      </div>
+    </section>
+
+    <!-- DUPES -->
+    <section id="dupes" class="panel">
+      <div class="panel-head"><h2>Duplicates</h2><span class="hint">Quarantined, never deleted</span></div>
+      <table class="grid">
+        <thead><tr><th>Time</th><th>File</th><th>Category</th><th>Duplicate of</th><th>Stored at</th></tr></thead>
+        <tbody id="dupes-body"></tbody>
+      </table>
+      <p id="dupes-empty" class="empty">No duplicates found.</p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

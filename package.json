@@ -1,0 +1,37 @@
+{
+  "name": "file-organiser-agent",
+  "version": "1.0.0",
+  "description": "A cross-platform Node.js agent that watches folders, classifies new files, renames and de-duplicates them, and moves them to rule-defined destinations. Ships with a system tray, native notifications, undo, and a localhost dashboard.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dry": "node src/index.js --dry-run",
+    "confirm": "node src/index.js --confirm",
+    "install-autostart": "node src/index.js --install-autostart",
+    "remove-autostart": "node src/index.js --remove-autostart",
+    "test": "node --test test/"
+  },
+  "keywords": [
+    "file-organiser",
+    "file-organizer",
+    "automation",
+    "chokidar",
+    "watcher",
+    "tray"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "chokidar": "^3.6.0",
+    "express": "^4.19.2",
+    "file-type": "^16.5.4",
+    "js-yaml": "^4.1.0",
+    "node-notifier": "^10.0.1",
+    "systray2": "^2.1.4"
+  }
+}

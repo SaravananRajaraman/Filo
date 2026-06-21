@@ -1,0 +1,4 @@
+node_modules/
+.file-organiser/
+*.log
+.DS_Store

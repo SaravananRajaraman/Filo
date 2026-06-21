@@ -1,0 +1,17 @@
+# File Organiser Agent — source of truth for sort rules.
+# Paths may use ~ (home dir) and the tokens {year} {month} {day} {category}.
+# Edited live by the dashboard rules editor; hot-reloaded without restart.
+
+watched:
+  - ~/Downloads
+  - ~/Desktop
+  - ~/Documents
+  - ~/Projects/client-work
+rules:
+  Images: ~/Pictures/Sorted/{year}/{month}
+  Documents: ~/Documents/Sorted/{year}
+  Video: ~/Movies/Sorted
+  Audio: ~/Music/Sorted
+  Archives: ~/Downloads/.archives
+  Code: ~/Developer/Misc
+  Other: ~/Downloads/.unsorted
